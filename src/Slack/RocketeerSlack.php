@@ -4,6 +4,7 @@ namespace Rocketeer\Plugins\Slack;
 use Crummy\Phlack\Phlack;
 use Illuminate\Container\Container;
 use Rocketeer\Plugins\Notifier;
+use Rocketeer\TasksHandler;
 
 class RocketeerSlack extends Notifier
 {
