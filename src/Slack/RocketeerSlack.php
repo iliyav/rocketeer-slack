@@ -74,4 +74,20 @@ class RocketeerSlack extends Notifier
 
     return $response;
   }
+  
+  /**
+	 * Register Tasks with Rocketeer
+	 *
+	 * @param TasksHandler $queue
+	 *
+	 * @return void
+	 */
+	public function onQueue(TasksHandler $queue)
+	{
+		$me = $this;
+
+		$queue->after('deploy', function ($task) use ($me) {
+			$me->prepareThenSend($task, 'after_deploy');
+		}, -10);
+	}
 }
